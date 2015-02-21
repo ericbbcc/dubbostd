@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(
+     	'org.slf4j:slf4j-api:1.7.5',
+     	'org.springframework:spring-webmvc:4.1.4.RELEASE',
+		'com.alibaba:dubbo:2.5.3'
+    )
+   
+    testCompile "junit:junit:4.11"
+}
+
+task 'src' << {
+	sourceSets*.java.srcDirs*.each { it.mkdirs() }
+	sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
